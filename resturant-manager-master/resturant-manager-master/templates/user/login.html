@@ -1,0 +1,118 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block title %}
+Login | Registration
+{% endblock title %}
+
+{% block extracss %}
+
+{% endblock extracss %}
+
+{% block content %}
+<div id="login-register" class="banner full-screen-mode parallax">
+    <div class="container pr">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="banner-static">
+                <div class="banner-text">
+                    <div class="banner-cell mt-0 mt-sm-1" id="login-block">
+                        <h2>Login</h2>
+                        <form id="loginform" method="POST" action="{% url 'login' %}" class="reservations-box" style="max-width: 500px; margin: 0 auto;" >
+                            {% csrf_token %}
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-center">
+                                <div class="form-box">
+                                    <input type="email" name="email" id="email" placeholder="E-Mail Address" required="required" data-error="E-mail id is required.">
+                                </div>
+                                <div class="form-box">
+                                    <input type="password" name="password" id="password" placeholder="Password" required="required" data-error="Password is required.">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="reserve-book-btn text-center">
+                                    <button class="hvr-underline-from-center text-light" style="color: white;" type="submit" form="loginform" id="login-submit">
+                                        Login
+                                    </button>
+                                    <br>
+                                    <br>
+                                    <h3 style="color: aliceblue;">New User ? <a href="javascript:void(0);" style="color:#e75c30;" id="switch-register" class="text-light">Register</a></h3>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="banner-cell mt-0 mt-sm-1" style="display: none;"  id="register-block">
+                        <h2 style="padding-bottom: 0;">Register</h2>
+                        <form id="register-form" action="{% url 'register' %}" method="POST" class="reservations-box" style="max-width: 1000px; margin: 0 auto;" >
+                            {% csrf_token %}
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 d-flex justify-content-center">
+                                <div class="form-box">
+                                    <input type="text" name="fname" id="fname" placeholder="First Name" required="required" data-error="First Name is required.">
+                                </div>    
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 d-flex justify-content-center">
+                                <div class="form-box">
+                                    <input type="text" name="lname" id="lname" placeholder="Last Name" required="required" data-error="Last Name is required.">
+                                </div>    
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 d-flex justify-content-center">
+                                <div class="form-box">
+                                    <input type="email" inputmode="email" name="email" id="email" placeholder="E-Mail Address" required="required" data-error="E-mail id is required.">
+                                </div>    
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 d-flex justify-content-center">
+                                <div class="form-box">
+                                    <input type="tel" inputmode="tel" maxlength="10" name="phone" id="phone" placeholder="Phone Number" required="required" data-error="Phone Number is required.">
+                                </div>    
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 d-flex justify-content-center">
+                                <div class="form-box">
+                                    <input type="password" name="password1" id="password1" placeholder="Password" required="required" data-error="Password is required.">
+                                </div>    
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 d-flex justify-content-center">
+                                <div class="form-box">
+                                    <input type="password" name="password2" id="password2" placeholder="Confirm Password" required="required" data-error="Password is required.">
+                                </div>    
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="reserve-book-btn text-center">
+                                    <button form="register-form" class="hvr-underline-from-center" style="color: white;" type="submit" id="submit">
+                                        Register
+                                    </button>
+                                    <br>
+                                    <h3 style="color: aliceblue;margin-top: 10px;">Already Registered ? <a href="javascript:void(0);" style="color:#e75c30;" id="switch-login" class="text-light">Login</a></h3>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end banner-cell -->
+                </div>
+                <!-- end banner-text -->
+            </div>
+            <!-- end banner-static -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end banner -->
+
+{% endblock content %}
+
+
+{% block extrajs %}
+<script>
+    $('.nav li').removeClass('active');
+    $('#nav-login-register').addClass('active');
+
+</script>
+<script>
+    $('#switch-register').click(function(){
+        $('#login-block').hide();
+        $('#register-block').show();
+    });
+    $('#switch-login').click(function(){
+        $('#login-block').show();
+        $('#register-block').hide();
+    });
+    </script>
+{% endblock extrajs %}
+    

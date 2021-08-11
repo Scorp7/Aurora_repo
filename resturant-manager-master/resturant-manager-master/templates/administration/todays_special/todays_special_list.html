@@ -1,0 +1,93 @@
+{% extends 'administration/base.html' %}
+{% block title %}
+All Today's Special Items
+{% endblock title %}
+
+{% block extracss %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+{% endblock extracss %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <div style="display: flex;">
+                            <h4 class="title">All Today's Special Items</h4>
+                            <a href="{% url 'admin_create_todays_special' %}" style="margin-left: 10px;"
+                                class="btn btn-success">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </div>
+
+                        <p class="category">Create, Delete And Manage Today's Special Items</p>
+                    </div>
+                    <div class="content table-responsive table-full-width" style="margin:10px;">
+                        <table class="table table-hover table-striped datatable">
+                            <thead>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Image</th>
+                                <th>Actions</th>
+                            </thead>
+                            <tbody>
+                                {% for i in todays_special %}
+                                <tr>
+                                    <td>{{i.name}}</td>
+                                    <td>
+                                        <a href="{% url 'admin_toggle_todays_special' i.id %}">
+                                            {% if i.is_active %}
+                                            <span style="color:green;">
+                                                <i class="fa fa-check"></i> Active
+                                            </span>
+                                            {% else %}
+                                            <span style="color: red;">
+                                                <i class="fa fa-times"></i> Inactive
+                                            </span>
+                                            {% endif %}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {% if i.image %}
+                                        <a href="{{i.image.url}}">
+                                            <img src="{{i.image.url}}" style="max-width:50px;" alt="{{i.name}}">
+                                        </a>
+                                        {% else %}
+                                        Not available
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'admin_edit_todays_special' i.id %}"
+                                            class="btn btn-warning btn-sm">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a href="{% url 'admin_delete_todays_special' i.id %}"
+                                            class="btn btn-danger btn-sm">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extrajs %}
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.datatable').DataTable();
+        $('.sidebar-wrapper .nav li').removeClass('active');
+        $('#nav-todays-special').addClass('active');
+    });
+</script>
+{% endblock extrajs %}

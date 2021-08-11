@@ -1,0 +1,109 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block title %}
+Login | Registration
+{% endblock title %}
+
+{% block extracss %}
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+</style>
+{% endblock extracss %}
+
+{% block content %}
+<div id="login-register" class="banner full-screen-mode parallax">
+    <div class="container pr">
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="banner-static">
+                <div class="banner-text">
+                    <div class="banner-cell mt-0 mt-sm-1 " style="padding-bottom: 0px;" id="login-block">
+                        <h2>Order</h2>
+                        <form method="POST" id="order-form">
+                        <ul class="list-group" style="overflow-y: scroll;max-height: 300px;text-align: start;">                   
+                            
+                            {% csrf_token %}
+                            
+                            {% for i in foods %}
+                            <li class="list-group-item" style="color: black;padding:5px 10px;">
+                                <img src="{{i.image.url}}" alt="" style="max-width:30px;">
+                                <b style="font-size: 15px;">{{i}}</b>
+                                <small>({{i.description}}) ({{i.get_category_display}})</small>
+                                &#8377;{{i.price}}
+                                <span style="float:right;">
+                                    <button type="button" class="btn btn-danger decrement" data-link="#input-{{i.id}}" style="padding:0px 4px;">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                    <input type="text" style="max-width:30px;align-items:flex-end;" value="0" name="{{i.id}}"
+                                        id="input-{{i.id}}">
+                                    <button type="button" class="btn btn-success increment" data-link="#input-{{i.id}}" style="padding:0px 4px;">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                    
+                                </span>
+                            </li>
+                            {% endfor %}
+
+                        
+                        </ul>
+                        <div class="reserve-book-btn text-center " style="padding-top:0px;display: flex;justify-content: space-around;">
+                            {% if not user_has_reserved %}
+                            <select name="table" id="" class="form-control" style="max-width: 150px;margin-top: auto;margin-bottom: auto;" required>
+                                <option selected disabled>Select Table</option>
+                                {% for i in table %}
+                                <option value="{{i.id}}">{{i}}</option>    
+                                {% endfor %}
+                            </select>
+                            {% endif %}
+                            <button form="order-form" class="hvr-underline-from-center" style="color: white;" type="submit" id="submit">
+                                ORDER NOW
+                            </button>
+                            
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                <!-- end banner-text -->
+            </div>
+            <!-- end banner-static -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end banner -->
+<img src="{% static 'user/images/ad_4.png' %}" alt="" style="width:100%;height:auto;">
+{% endblock content %}
+
+
+{% block extrajs %}
+<script>
+    $('.nav li').removeClass('active');
+    $('#nav-order').addClass('active');
+</script>
+<script>
+    $('.increment').click(function(){
+        var element = $(this).attr('data-link');
+        var val = $(element).val();
+        val++;
+        $(element).val(val);
+    });
+    $('.decrement').click(function(){
+        var element = $(this).attr('data-link');
+        var val = $(element).val();
+        if( val > 0){
+            val--;
+        }
+        $(element).val(val);
+    });
+</script>
+{% endblock extrajs %}

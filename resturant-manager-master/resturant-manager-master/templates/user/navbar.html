@@ -1,0 +1,52 @@
+{% load static %}
+<div id="loader">
+    <div id="status"></div>
+</div>
+<div id="site-header">
+    <header id="header" class="header-block-top">
+        <div class="container">
+            <div class="row">
+                <div class="main-menu">
+                    <!-- navbar -->
+                    <nav class="navbar navbar-default" id="mainNav">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                <a class="navbar-brand js-scroll-trigger logo-header" href="#">
+                                    <img src="{% static 'user/images/logo.png' %}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="active"><a href="{{domain}}#banner">Home</a></li>
+                                <li><a href="{{domain}}#about">About us</a></li>
+                                <li><a href="{{domain}}#menu">Menu</a></li>
+                                <li><a href="{{domain}}#reservation">Reservation</a></li>     
+                                <li><a href="{{domain}}#footer">Contact us</a></li>
+                                <li id="nav-order"><a href="{% url 'order' %}">Order</a></li>
+                                {% if request.user.is_authenticated %}
+                                <li id="nav-user-profile"><a href="{% url 'user' request.user.email %}">Hi, {{request.user.fname}}</a></li>
+                                <li id="nav-logout"><a href="{% url 'logout' %}"><i class="fa fa-power-off"></i></a></li>
+                                {% else %}
+                                <li id="nav-login-register"><a href="{% url 'authenticate' %}">Login/Register</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                        <!-- end nav-collapse -->
+                    </nav>
+                    <!-- end navbar -->
+                </div>
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container-fluid -->
+    </header>
+    <!-- end header -->
+</div>

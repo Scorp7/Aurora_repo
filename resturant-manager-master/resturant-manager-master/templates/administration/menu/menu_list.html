@@ -1,0 +1,233 @@
+{% extends 'administration/base.html' %}
+{% block title %}
+Manage Menu
+{% endblock title %}
+
+{% block extracss %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+{% endblock extracss %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <div style="display: flex;">
+                            <h4 class="title">Manage Menu</h4>
+                            <a href="{% url 'admin_create_menu' %}" style="margin-left: 10px;" class="btn btn-success">
+                                <i class="fa fa-plus"></i> Add Food Item
+                            </a>
+                        </div>
+
+                        <p class="category">Create, Delete And Manage Menu</p>
+                    </div>
+                    <div class="content table-responsive table-full-width" style="margin:10px;border: 1px solid black;">
+                        <h5>Category : Starters</h5>
+                        <table class="table table-hover table-striped datatable">
+                            <thead>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Image</th>
+                                <th>Order Count</th>
+                                <th>Actions</th>
+                            </thead>
+                            <tbody>
+                                {% for i in menu_starters %}
+                                <tr>
+                                    <td>{{i.name}}</td>
+                                    <td>&#8377; {{i.price}}</td>
+                                    <td>
+                                        {% if i.image %}
+                                        <a href="{{i.image.url}}">
+                                            <img src="{{i.image.url}}" style="max-width:50px;" alt="{{i.name}}">
+                                        </a>
+                                        {% else %}
+                                        Not available
+                                        {% endif %}
+                                    </td>
+                                    <td>{{i.order_count}}</td>
+                                    <td>
+                                        <a href="{% url 'admin_edit_menu' i.id %}" class="btn btn-warning btn-sm">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a href="{% url 'admin_delete_menu' i.id %}" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content table-responsive table-full-width" style="margin:10px;border: 1px solid black;">
+                        <h5>Category : Main Dishes</h5>
+                        <table class="table table-hover table-striped datatable">
+                            <thead>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Image</th>
+                                <th>Order Count</th>
+                                <th>Actions</th>
+                            </thead>
+                            <tbody>
+                                {% for i in menu_main_dishes %}
+                                <tr>
+                                    <td>{{i.name}}</td>
+                                    <td>&#8377; {{i.price}}</td>
+                                    <td>
+                                        {% if i.image %}
+                                        <a href="{{i.image.url}}">
+                                            <img src="{{i.image.url}}" style="max-width:50px;" alt="{{i.name}}">
+                                        </a>
+                                        {% else %}
+                                        Not available
+                                        {% endif %}
+                                    </td>
+                                    <td>{{i.order_count}}</td>
+                                    <td>
+                                        <a href="{% url 'admin_edit_menu' i.id %}" class="btn btn-warning btn-sm">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a href="{% url 'admin_delete_menu' i.id %}" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content table-responsive table-full-width" style="margin:10px;border: 1px solid black;">
+                        <h5>Category : Desserts</h5>
+                        <table class="table table-hover table-striped datatable">
+                            <thead>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Image</th>
+                                <th>Order Count</th>
+                                <th>Actions</th>
+                            </thead>
+                            <tbody>
+                                {% for i in menu_desserts %}
+                                <tr>
+                                    <td>{{i.name}}</td>
+                                    <td>&#8377; {{i.price}}</td>
+                                    <td>
+                                        {% if i.image %}
+                                        <a href="{{i.image.url}}">
+                                            <img src="{{i.image.url}}" style="max-width:50px;" alt="{{i.name}}">
+                                        </a>
+                                        {% else %}
+                                        Not available
+                                        {% endif %}
+                                    </td>
+                                    <td>{{i.order_count}}</td>
+                                    <td>
+                                        <a href="{% url 'admin_edit_menu' i.id %}" class="btn btn-warning btn-sm">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a href="{% url 'admin_delete_menu' i.id %}" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content table-responsive table-full-width" style="margin:10px;border: 1px solid black;">
+                        <h5>Category : Drinks</h5>
+                        <table class="table table-hover table-striped datatable">
+                            <thead>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Image</th>
+                                <th>Order Count</th>
+                                <th>Actions</th>
+                            </thead>
+                            <tbody>
+                                {% for i in menu_drinks %}
+                                <tr>
+                                    <td>{{i.name}}</td>
+                                    <td>&#8377; {{i.price}}</td>
+                                    <td>
+                                        {% if i.image %}
+                                        <a href="{{i.image.url}}">
+                                            <img src="{{i.image.url}}" style="max-width:50px;" alt="{{i.name}}">
+                                        </a>
+                                        {% else %}
+                                        Not available
+                                        {% endif %}
+                                    </td>
+                                    <td>{{i.order_count}}</td>
+                                    <td>
+                                        <a href="{% url 'admin_edit_menu' i.id %}" class="btn btn-warning btn-sm">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a href="{% url 'admin_delete_menu' i.id %}" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content table-responsive table-full-width" style="margin:10px;border: 1px solid black;">
+                        <h5>Category : Other</h5>
+                        <table class="table table-hover table-striped datatable">
+                            <thead>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Image</th>
+                                <th>Order Count</th>
+                                <th>Actions</th>
+                            </thead>
+                            <tbody>
+                                {% for i in menu_other %}
+                                <tr>
+                                    <td>{{i.name}}</td>
+                                    <td>&#8377; {{i.price}}</td>
+                                    <td>
+                                        {% if i.image %}
+                                        <a href="{{i.image.url}}">
+                                            <img src="{{i.image.url}}" style="max-width:50px;" alt="{{i.name}}">
+                                        </a>
+                                        {% else %}
+                                        Not available
+                                        {% endif %}
+                                    </td>
+                                    <td>{{i.order_count}}</td>
+                                    <td>
+                                        <a href="{% url 'admin_edit_menu' i.id %}" class="btn btn-warning btn-sm">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a href="{% url 'admin_delete_menu' i.id %}" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extrajs %}
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.datatable').DataTable();
+        $('.sidebar-wrapper .nav li').removeClass('active');
+        $('#nav-menu').addClass('active');
+    });
+</script>
+{% endblock extrajs %}

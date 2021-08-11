@@ -1,0 +1,157 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block title %}
+Login | Registration
+{% endblock title %}
+
+{% block extracss %}
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+</style>
+{% endblock extracss %}
+
+{% block content %}
+<div id="login-register" class="banner full-screen-mode parallax">
+    <div class="container pr">
+        <br><br><br><br><br>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="banner-static">
+                <div class="banner-text">
+                    <div class="banner-cell mt-0 mt-sm-1 " style="padding-bottom: 0px;" id="login-block">
+                        <h2>Confirm Order</h2>
+
+                        <div class="container">
+                            <div class="card">
+                                <div class="card-header" style="max-width: 500px;margin-left: auto;margin-right: auto;">
+                                    Order
+                                    <strong>#{{order.id}}</strong>
+                                    <span class="float-right" style="float: right;">
+                                        <strong>Payment Status:</strong>
+                                        {% if order.payment_is_complete %}
+                                        Completed
+                                        {% else %}
+                                        Pending
+                                        {% endif %}
+                                    </span>
+
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive-sm"
+                                        style="margin-right: auto; margin-left: auto;max-width: 500px;">
+                                        <table class="table table-clear">
+                                            <thead>
+                                                <tr>
+                                                    <th>Item</th>
+                                                    <th>Category</th>
+                                                    <th class="right">Unit Price</th>
+                                                    <th class="center">Qty</th>
+                                                    <th class="right">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="max-height: 250px;overflow-y: auto;">
+                                                {% for i in food_order %}
+                                                <tr>
+                                                    <td class="left strong">{{i.food.name}}</td>
+                                                    <td class="left">{{i.food.get_category_display}}</td>
+                                                    <td class="right">&#8377; {{i.food.price}}.00</td>
+                                                    <td class="center">{{i.quantity}}</td>
+                                                    <td class="right">&#8377; {{i.total}}.00</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4 col-sm-5">
+
+                                        </div>
+
+                                        <div class="col-lg-4 col-sm-5 ml-auto">
+                                            <table class="table table-clear">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="left">
+                                                            <strong>Total</strong>
+                                                        </td>
+                                                        <td class="right">
+                                                            <strong>&#8377; {{order.amount}}.00</strong>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <form method="POST" id="order-form">
+                                                {% csrf_token %}
+                                                <div class="radio">
+                                                    <label for="payment_method_counter">
+                                                        <input type="radio" name="payment_type" value="counter"
+                                                            id="payment_method_counter" required>
+                                                        Pay On Counter
+                                                    </label>
+                                                    <label for="payment_method_online">
+                                                        <input type="radio" name="payment_type" value="online"
+                                                            id="payment_method_online" required>
+                                                        Pay Online
+                                                    </label>
+                                                </div>
+                                                <div class="reserve-book-btn text-center" style="padding-top:0px;">
+                                                    <button form="order-form" class="hvr-underline-from-center"
+                                                        style="color: white;" type="submit" id="submit">
+                                                        ORDER NOW
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                </div>
+                <!-- end banner-text -->
+            </div>
+            <!-- end banner-static -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end banner -->
+
+{% endblock content %}
+
+
+{% block extrajs %}
+<script>
+    $('.nav li').removeClass('active');
+    $('#nav-order').addClass('active');
+</script>
+<script>
+    $('.increment').click(function () {
+        var element = $(this).attr('data-link');
+        var val = $(element).val();
+        val++;
+        $(element).val(val);
+    });
+    $('.decrement').click(function () {
+        var element = $(this).attr('data-link');
+        var val = $(element).val();
+        if (val > 0) {
+            val--;
+        }
+        $(element).val(val);
+    });
+</script>
+{% endblock extrajs %}

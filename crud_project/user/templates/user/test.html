@@ -1,0 +1,52 @@
+<!-- {% extends 'user/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-auto my-1">
+        <label class="mr-sm-2" for="inlineFormCustomSelect">Preference</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <option selected>Choose...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+</div>
+{% endblock content %} -->
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Cars</title>
+    <h1> Enter sales data to store</h1>
+</head>
+
+<body>
+
+<div>
+    <form method="post">
+        {% csrf_token %}
+        <label for="billingnumber">Billing Number:</label>
+        <input type="number" id="billingnumber" name="billingnumber"><br/>
+        <label for="customername" >Customer Name :</label>
+        <input type="text" id="customername" name="customername"><br/>
+        <label for="purchasedate">Purchase Date:</label>
+        <input type="date" id="purchasedate" name="purchasedate"><br/>
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" ><br/>
+        <label for="carcompany">Car Company:</label>
+        <input type="text" id="carcompany" name="carcompany"><br/>
+        <label for="carmodel">Car Model:</label>
+        <input type="text" id="carmodel" name="carmodel"><br/>
+        <label>Car Serial Number:</label>
+        <input type="number" id="carserial" name="carserial"><br/>
+        <label for="mfgdate">Car Manufacturing Date:</label>
+        <input type="date" id="mfgdate" name="mfgdate"><br/>
+        <label for="shippingdate">Shipping Date:</label>
+        <input type="date" id="shippingdate" name="shippingdate"><br/>
+        <button type="submit" value="submit">Submit</button>
+        </form>
+</div>
+<a href="/">Home<a>
+</body>
+</html>

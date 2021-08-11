@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>BLOG | ADOPTPET</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Nunito:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link href="https://use.fontawesome.com/release/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/path/to/cdn/bootstrap.min.css" />
+    <link rel="stylesheet" href="/path/to/bootstrap-side-modals.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- JavaScript -->
+
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky fixed-top r-nav">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">ADOPTPET</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarId"
+                style="background-color: rgb(190, 255, 11)">
+                <span><i class="bi bi-list hamburger"></i></span></button>
+            <div class="collapse navbar-collapse" id="navbarId">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="" class="nav-link">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">BLOG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">CONTACT US</a>
+                    </li>
+                </ul>
+                <div class="mx-2">
+                    <button class="button" type="button" data-toggle="modal" data-target="#signup">
+                        <href a="signup"></href>signup
+                    </button>
+
+                    <button class="button" type="button" data-toggle="modal" data-target="#login">login</button>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- left modal -->
+    <div class="modal modal_outer left_modal fade" id="signup" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel2">
+        <div class="modal-dialog" role="document">
+            <form method="post" id="get_quote_frm">
+                <div class="modal-content " style="background-color: rgb(95, 95, 95); color: whitesmoke;">
+                    <!-- <input type="hidden" name="email_e" value="admin@filmscafe.in"> -->
+                    <div class="modal-header">
+                        <h2 class="modal-title">Welcome to AdoptPet</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body get_quote_view_modal_body">
+
+                        <div class="form-row">
+
+                            <div class="form-group col-sm-6">
+                                <label for="name">Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" required="" id="name" name="name">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="email">Email <span class="text-danger">*</span></label>
+                                <input type="email" required="" class="form-control" id="email" name="email">
+                            </div>
+                            <div class="form-group  col-sm-12">
+                                <label for="password">Password <span class="text-danger">*</span></label>
+                                <input type="password" required="" class="form-control" id="contact" name="contact">
+                            </div>
+                            <div class="form-group  col-sm-12">
+                                <label for="password">Confirm Password <span class="text-danger">*</span></label>
+                                <input type="password" required="" class="form-control" id="contact" name="contact">
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-light mr-auto" data-dismiss="modal"><i
+                                class="fas fa-window-close mr-2"></i> Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="submit_btn">Submit</button>
+                    </div>
+
+                </div><!-- //modal-content -->
+            </form>
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+    <!-- //left modal -->
+
+      <!-- Modal -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <!--Content-->
+  <div class="modal-content form-elegant">
+    <!--Header-->
+    <div class="modal-header text-center">
+      <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Log In</strong></h3>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <!--Body-->
+    <div class="modal-body mx-4">
+      <!--Body-->
+      <div class="md-form mb-5">
+        <input type="email" id="Form-email1" class="form-control validate">
+        <label data-error="wrong" data-success="right" for="Form-email1">Your email</label>
+      </div>
+
+      <div class="md-form pb-3">
+        <input type="password" id="Form-pass1" class="form-control validate">
+        <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
+        <p class="pass font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1">
+            Password?</a></p>
+      </div>
+
+      <div class="text-center mb-3">
+        <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
+      </div>
+      <p class="pass font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in
+        with:</p>
+
+      <div class="row my-3 d-flex justify-content-center">
+        <!--Facebook-->
+        <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="bi bi-facebook text-center"></i></button>
+        <!--Twitter-->
+        <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="bi bi-twitter"></i></button>
+        <!--Google +-->
+        <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="bi bi-google"></i></button>
+      </div>
+    </div>
+    <!--Footer-->
+    <div class="modal-footer mx-5 pt-3 mb-1">
+      <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href="#" class="blue-text ml-1">
+          Log in</a></p>
+    </div>
+  </div>
+  <!--/.Content-->
+</div>
+</div>
+<!-- Modal -->
+    <div class="container mt-5 pt-5 mb-5 pb-5">
+        <div class="row">
+            <div class="col-md-6 text-center full-content">
+                <h2 class="section-title no-border v-3"><span>Blog</span>Page</h2>
+                <p class="sub-section-title v-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora magni minima omnis pariatur officiis saepe illum magnam corporis recusandae. Obcaecati?</p>
+                <div class="mrb-45"></div>
+                <!--  /.mrb -->
+            </div>
+            <!--  /.col-md-12 -->
+        </div>
+        <!--  /.row -->
+    
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-md-6 col-xl-4">
+                        <article class="post">
+                            <div class="article-v2">
+                                <figure class="article-thumb">
+                                    <a href="#">
+                                        <img src="images/blog3.jpg" alt="blog image" />
+                                    </a>
+                                </figure>
+                                <!-- /.article-thumb -->
+                                <div class="article-content-main">
+                                    <div class="article-header">
+                                        <h2 class="entry-title">The Animal Rescue Site News.</h2>
+                                       
+                                        <div class="entry-meta">
+                                            <div class="entry-date">June 25,2019</div>
+                                            <!-- /.entry-date -->
+                                            <div class="entry-cat">
+                                                <a href="#">Halie Rose</a>
+                                            </div>
+                                            <!--  /.entry-cat -->
+                                        </div>
+                                        <!-- /.entry-meta -->
+                                    </div>
+                                    <!-- /.article-header -->
+                                    <div class="article-content">
+                                        <p>Seattle, Washington, US The Animal Rescue Site provides food and vital care for some of the eight million unwanted animals given to shelters every year in the U.S., as well as animals in desperate need around the world. Frequency 11 posts / day</p>
+                                    </div>
+                                    <!--  /.article-content -->
+                                    <div class="article-footer">
+                                        <div class="row">
+                                            <div class="col-6 text-left footer-link">
+                                                <a href="#" class="more-link">Read More</a>
+                                            </div>
+                                            <!--  /.col-6 -->
+                                            <div class="col-6 text-right footer-meta">
+                                                <a href="#">65 <i class="bi bi-chat-left-text"></i></a>
+                                                <a href="#">50 <i class="bi bi-share"></i></a>
+                                            </div>
+                                            <!--  /.col-6 -->
+                                        </div>
+                                        <!--  /.row -->
+                                    </div>
+                                    <!--  /.article-footer -->
+                                </div>
+                                <!--  /.article-content-main -->
+                            </div>
+                            <!--  /.article-v2 -->
+                        </article>
+                        <!--  /.post -->
+                    </div>
+                    <!--  /.col-md-6 -->
+    
+                    <div class="col-md-6 col-xl-4">
+                        <article class="post">
+                            <div class="article-v2">
+                                <figure class="article-thumb">
+                                    <a href="#">
+                                        <img src="images/blog1.jpg" alt="blog image" />
+                                    </a>
+                                </figure>
+                                <!-- /.article-thumb -->
+                                <div class="article-content-main">
+                                    <div class="article-header">
+                                        <h2 class="entry-title">Saving animals from suffering around the world</h2>
+                                        <div class="entry-meta">
+                                            <div class="entry-date">July 25,2020</div>
+                                            <!-- /.entry-date -->
+                                            <div class="entry-cat">
+                                                <a href="#">Halie Rose</a>
+                                            </div>
+                                            <!--  /.entry-cat -->
+                                        </div>
+                                        <!-- /.entry-meta -->
+                                    </div>
+                                    <!-- /.article-header -->
+                                    <div class="article-content">
+                                        UK At International Animal Rescue we save & protect animals from suffering around the world. Our work includes cutting free & caring for dancing bears in India, rescuing primates from captivity in Indonesia & sterilising and vaccinating stray dogs & cats in developing countries. Wherever possible we return rescued animals to their natural environment but we also provide a permanent home for animals.
+                                    </div>
+                                    <!--  /.article-content -->
+                                    <div class="article-footer">
+                                        <div class="row">
+                                            <div class="col-6 text-left footer-link">
+                                                <a href="#" class="more-link">Read More</a>
+                                            </div>
+                                            <!--  /.col-6 -->
+                                            <div class="col-6 text-right footer-meta">
+                                                <a href="#">65 <i class="bi bi-chat-left-text"></i></a>
+                                                <a href="#">50 <i class="bi bi-share"></i></a>
+                                            </div>
+                                            <!--  /.col-6 -->
+                                        </div>
+                                        <!--  /.row -->
+                                    </div>
+                                    <!--  /.article-footer -->
+                                </div>
+                                <!--  /.article-content-main -->
+                            </div>
+                            <!--  /.article-v2 -->
+                        </article>
+                        <!--  /.post -->
+                    </div>
+                    <!--  /.col-md-6 -->
+    
+                    <div class="col-md-6 col-xl-4">
+                        <article class="post">
+                            <div class="article-v2">
+                                <figure class="article-thumb">
+                                    <a href="#">
+                                        <img src="images/blog5.jpg" alt="blog image" />
+                                    </a>
+                                </figure>
+                                <!-- /.article-thumb -->
+                                <div class="article-content-main">
+                                    <div class="article-header">
+                                        <h2 class="entry-title">Dogs for Adoption </h2>
+                                        <div class="entry-meta">
+                                            <div class="entry-date">May 2,2017</div>
+                                            <!-- /.entry-date -->
+                                            <div class="entry-cat">
+                                                <a href="#">Halie Rose</a>
+                                            </div>
+                                            <!--  /.entry-cat -->
+                                        </div>
+                                        <!-- /.entry-meta -->
+                                    </div>
+                                    <!-- /.article-header -->
+                                    <div class="article-content">
+                                       Dogsblog is a unique and innovative online resource for would-be dog owners to help them find a new dog to adopt from an animal rescue in the UK.Our work includes cutting free & caring for dancing bears in India, rescuing primates from captivity in Indonesia & sterilising and vaccinating stray dogs & cats in developing countries. Wherever possible we return rescued animals to their natural environment but we also provide a permanent home for animals
+                                    <!--  /.article-content -->
+                                    <div class="article-footer">
+                                        <div class="row">
+                                            <div class="col-6 text-left footer-link">
+                                                <a href="#" class="more-link">Read More</a>
+                                            </div>
+                                            <!--  /.col-6 -->
+                                            <div class="col-6 text-right footer-meta">
+                                                <a href="#">65 <i class="bi bi-chat-left-text"></i></a>
+                                                <a href="#">50 <i class="bi bi-share"></i></a>
+                                            </div>
+                                            <!--  /.col-6 -->
+                                        </div>
+                                        <!--  /.row -->
+                                    </div>
+                                    <!--  /.article-footer -->
+                                </div>
+                                <!--  /.article-content-main -->
+                            </div>
+                            <!--  /.article-v2 -->
+                        </article>
+                        <!--  /.post -->
+                    </div>
+                    <!--  /.col-md-6 -->
+                </div>
+                <!--  /.blog-carousel -->
+            </div>
+            <!--  /.col-12 -->
+        </div>
+        <!--  /.row -->
+    </div>
+    <div class="container mb-5 pb-5">
+        <div class="row no-gutters">
+          <div class="col-xl-6 col-12 mb-5 mb-xl-0">
+            <div class="media media-news">
+              <div class="media-img">
+                <img src="images/blog1.jpg" alt="Generic placeholder image">
+              </div>
+              <div class="media-body">
+                <span class="media-date">25 july 2017</span>
+                <h5 class="mt-0 sep">The Animal Rescue Site News</h5>
+                <p>Seattle, Washington, US The Animal Rescue Site provides food and vital care </p>
+                <a href="blog-post-right-sidebar.html" class="btn btn-transparent">Read More</a>
+                <div class="col-6 text-right footer-meta">
+                    <a href="#">65 <i class="bi bi-chat-left-text"></i></a>
+                    <a href="#">50 <i class="bi bi-share"></i></a>
+                </div>
+              </div> 
+            </div>
+          </div>
+          
+          <div class="col-xl-6 col-12">
+            <div class="media media-news">
+              <div class="media-img">
+                <img src="images/blog2.jpg" alt="Generic placeholder image">
+              </div>
+              <div class="media-body">
+                <span class="media-date">13 August 2018</span>
+                 <h5 class="mt-0 sep"> The Animal Rescue Site News</h5>
+                <p>Seattle, Washington, US The Animal Rescue Site provides food and vital care </p>
+                <a href="blog-post-right-sidebar.html" class="btn btn-transparent">Read More</a>
+                <div class="col-6 text-right footer-meta">
+                    <a href="#">65 <i class="bi bi-chat-left-text"></i></a>
+                    <a href="#">50 <i class="bi bi-share"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row no-gutters mt-4">
+          <div class="col-xl-6 col-12 mb-5 mb-xl-0">
+            <div class="media media-news">
+              <div class="media-img">
+                <img src="images/blog3.jpg" alt="Generic placeholder image">
+              </div>
+              <div class="media-body">
+                <span class="media-date">25 july 2017</span>
+                <h5 class="mt-0 sep">The Animal Rescue Site News</h5>
+                <p>Seattle, Washington, US The Animal Rescue Site provides food and vital care</p>
+                <a href="blog-post-right-sidebar.html" class="btn btn-transparent">Read More</a>
+                <div class="col-6 text-right footer-meta">
+                    <a href="#">65 <i class="bi bi-chat-left-text"></i></a>
+                    <a href="#">50 <i class="bi bi-share"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-xl-6 col-12">
+            <div class="media media-news">
+              <div class="media-img">
+                <img src="images/blog4.jpg" alt="Generic placeholder image">
+              </div>
+              <div class="media-body">
+                <span class="media-date">13 August 2018</span>
+                 <h5 class="mt-0 sep"> Tincidunt dui ornare</h5>
+                <p>Facilisi morbi tempus iaculis urna id volutpat lacus. Mi eget mauris pharetra et. Fermentum iaculis</p>
+                <a href="blog-post-right-sidebar.html" class="btn btn-transparent">Read More</a>
+                <div class="col-6 text-right footer-meta">
+                    <a href="#">65 <i class="bi bi-chat-left-text"></i></a>
+                    <a href="#">50 <i class="bi bi-share"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small mdb-color pt-4" style="background-color: rgb(0, 0, 0);">
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <!-- Content -->
+                    <h5 class="font-weight-bold text-uppercase mb-4">ADPOT PET</h5>
+                    <p>We inspire and empower communities to make a </p>
+                    <p>difference in the lives of animals.Find your new best friend and</p>
+                    <p>give a pet a loving home</p>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mb-4">About</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>
+                                <a href="home1.html">HOME</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="about.html">ABOUT</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="#!">BLOG</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="contact.html">CONTACT US</a>
+                            </p>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <!-- Contact details -->
+                    <h5 class="font-weight-bold text-uppercase mb-4">Address</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>
+                                <i class="bi bi-house-fill mr-3"></i>MAHARASHTRA,INDIA
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="bi bi-envelope mr-3"></i> info@adoptpet.com
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="bi bi-phone mr-3"></i> + 91 9874557488
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="bi bi-printer-fill mr-3"></i> + 91 9874557489
+                            </p>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="social col-md-2 col-lg-2 text-center mx-auto my-4">
+
+                    <!-- Social buttons -->
+                    <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
+
+                    <!-- Facebook -->
+                    <a type="button" class="btn-floating btn-fb">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <!-- Twitter -->
+                    <a type="button" class="btn-floating btn-tw">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <!-- Google +-->
+                    <a type="button" class="btn-floating btn-gplus">
+                        <i class="bi bi-google"></i>
+                    </a>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+            <p class="float-end mb-1">
+                <a href="#">Back to top</a>
+            </p>
+        </div>
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3" style="color: whitesmoke;">© 2020 Copyright:
+            <a href="home1.html"> AdoptPet.com</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="js/app1.js"></script>
+    <script src="lib/typed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.0/typed.min.js"
+        integrity="sha512-zKaK6G2LZC5YZTX0vKmD7xOwd1zrEEMal4zlTf5Ved/A1RrnW+qt8pWDfo7oz+xeChECS/P9dv6EDwwPwelFfQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.0/typed.min.js.map"></script>
+    <script src="/path/to/cdn/jquery.slim.min.js"></script>
+    <script src="/path/to/cdn/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</body>
+</html>

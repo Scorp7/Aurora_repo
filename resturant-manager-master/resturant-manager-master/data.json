@@ -1,0 +1,107 @@
+[{
+        "model": "user.food",
+        "pk": 1,
+        "fields": {
+            "name": "Garlic Bread",
+            "category": "1",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis",
+            "price": "10",
+            "image": "food_images/menu-item-thumbnail-01.jpg",
+            "order_count": 0,
+            "is_active": true,
+            "changed_on": "2021-04-12T13:02:22.862Z",
+            "created_on": "2021-04-12T12:36:40.328Z",
+            "created_by": 1
+        }
+    }, {
+        "model": "user.food",
+        "pk": 2,
+        "fields": {
+            "name": "Mixed Salad",
+            "category": "1",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis",
+            "price": "102",
+            "image": "food_images/menu-item-thumbnail-02.jpg",
+            "order_count": 0,
+            "is_active": true,
+            "changed_on": "2021-04-12T13:29:39.119Z",
+            "created_on": "2021-04-12T13:29:39.119Z",
+            "created_by": 1
+        }
+    }, {
+        "model": "user.food",
+        "pk": 3,
+        "fields": {
+            "name": "Bbq Chicken Wings",
+            "category": "1",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis",
+            "price": "233",
+            "image": "food_images/menu-item-thumbnail-03.jpg",
+            "order_count": 0,
+            "is_active": true,
+            "changed_on": "2021-04-12T13:30:32.035Z",
+            "created_on": "2021-04-12T13:30:32.035Z",
+            "created_by": 1
+        }
+    }, {
+        "model": "user.food",
+        "pk": 4,
+        "fields": {
+            "name": "Meat Feast Pizza",
+            "category": "2",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis",
+            "price": "200",
+            "image": "food_images/menu-item-thumbnail-04.jpg",
+            "order_count": 0,
+            "is_active": true,
+            "changed_on": "2021-04-12T13:43:27.726Z",
+            "created_on": "2021-04-12T13:43:27.726Z",
+            "created_by": 1
+        }
+    }, {
+        "model": "user.food",
+        "pk": 5,
+        "fields": {
+            "name": "Chicken Tikka Masala",
+            "category": "2",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis",
+            "price": "400",
+            "image": "food_images/menu-item-thumbnail-05.jpg",
+            "order_count": 0,
+            "is_active": true,
+            "changed_on": "2021-04-12T13:45:18.020Z",
+            "created_on": "2021-04-12T13:45:18.020Z",
+            "created_by": 1
+        }
+    }, {
+        "model": "user.food",
+        "pk": 6,
+        "fields": {
+            "name": "Spicy Meatballs",
+            "category": "2",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis",
+            "price": "300",
+            "image": "food_images/menu-item-thumbnail-06.jpg",
+            "order_count": 0,
+            "is_active": true,
+            "changed_on": "2021-04-12T13:45:53.910Z",
+            "created_on": "2021-04-12T13:45:53.910Z",
+            "created_by": 1
+        }
+    }, {
+        "model": "user.food",
+        "pk": 7,
+        "fields": {
+            "name": "Chocolate Fudge Cake",
+            "category": "3",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis",
+            "price": "100",
+            "image": "food_images/menu-item-thumbnail-07.jpg",
+            "order_count": 0,
+            "is_active": true,
+            "changed_on": "2021-04-12T13:47:01.400Z",
+            "created_on": "2021-04-12T13:47:01.400Z",
+            "created_by": 1
+        }
+    }
+]

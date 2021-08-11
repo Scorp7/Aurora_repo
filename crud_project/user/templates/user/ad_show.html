@@ -1,0 +1,59 @@
+
+{% extends 'user/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-4">
+        <h2 class="text-center alert alert-info"> New User</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{Form}}
+            <input type="submit" class="btn btn-success" value="ADD">
+        </form>
+    </div>
+
+    <div class="col-sm-7 offset-1">
+        <h2 class="text-center alert alert-info">Show User Data</h2>
+        {% if Data %}
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Password</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                    {% for dt in Data %}
+                        <tr>
+                            <th scope="row">{{dt.id}}</th>
+                            <td>{{dt.name}}</td>
+                            <td>{{dt.age}}</td>
+                            <td>{{dt.email}}</td>
+                            <td>{{dt.gender}}</td>
+                            <td>{{dt.password}}</td>
+                            <td>
+                                <a href="{% url 'edit_data' dt.id %}" class="btn btn-warning btn-sm">Edit</a>
+                                <form action="{% url 'delete_data' dt.id %}" method="POST" class="d-inline">
+                                    {% csrf_token %}
+                                    <input type="submit" class="btn btn-danger" value="delete">
+                                </form>
+                            </td>
+                        </tr>
+                        
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        {% else %}
+            <h2 class="text-center alert alert-warning">No Records </h2>
+
+        {% endif %}
+
+    </div>
+</div>
+{% endblock content %}

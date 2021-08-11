@@ -1,0 +1,158 @@
+{% load static %}
+{% for message in messages %}
+{% if "success" in message.tags %}
+<script>
+    alert('Success!! {{message}}');
+</script>
+{% elif "error" in message.tags %}
+<script>
+    alert('Error!! {{message}}');
+</script>
+{% endif %}
+{% endfor %}
+<div id="footer" class="footer-main">
+    <div class="footer-news pad-top-100 pad-bottom-70 parallax">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="ft-title color-white text-center"> Contact Us </h2>
+                        <p> For Any Queries, Suggestions, Reviews Please Feel Free To Message Us</p>
+                    </div>
+                    <form method="POST" action="{% url 'contact_us' %}">
+                        {% csrf_token %}
+                        <input type="email" name="email" id="id_email" placeholder="Enter your e-mail id" required>
+                        <input name="message" id="id_message" style="margin-top: 10px;" type="text" placeholder="Your Message" required>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="reserve-book-btn text-center">
+                                <button class="hvr-underline-from-center" style="color: white;" type="submit">Send </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end footer-news -->
+    <img src="{% static 'user/images/ad_2.png' %}" alt="" style="width:100%;height:auto;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15088.743907150827!2d73.02716386977539!3d19.011524900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c3da99fe4209%3A0xf423b7b290871fba!2sSUDHAMA%20VEG%20RESTAURANT!5e0!3m2!1sen!2sin!4v1620197103844!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <div class="footer-box pad-top-70">
+        <div class="container">
+            <div class="row">
+                <div class="footer-in-main">
+                    <div class="footer-logo">
+                        <div class="text-center">
+                            <img src="{% static 'user/images/logo.png' %}" alt="" />
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="footer-box-a">
+                            <h3>About Us</h3>
+                            <p>Sudama Resturant is one of the top fine dine places in the city.</p>
+                            <ul class="socials-box footer-socials pull-left">
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa  fa-facebook"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa fa-twitter"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa fa-google-plus"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa fa-pinterest"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa fa-linkedin"></i></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- end footer-box-a -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="footer-box-b">
+                            <h3>New Menu</h3>
+                            <ul>
+                                <li><a href="javasctipt:void(0);">Italian Bomba Sandwich</a></li>
+                                <li><a href="javasctipt:void(0);">Double Dose of Pork Belly</a></li>
+                                <li><a href="javasctipt:void(0);">Spicy Thai Noodles</a></li>
+                                <li><a href="javasctipt:void(0);">Triple Truffle Trotters</a></li>
+                            </ul>
+                        </div>
+                        <!-- end footer-box-b -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="footer-box-c">
+                            <h3>Contact Us</h3>
+                            <p>
+                                <i class="fa fa-map-signs" aria-hidden="true"></i>
+                                <span>103 Abc Building, St Albans Road, Mumbai</span>
+                            </p>
+                            <p>
+                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                                <span>
+                                    +91 1234567891
+                                </span>
+                            </p>
+                            <p>
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <span><a href="#">support@sudama.com</a></span>
+                            </p>
+                        </div>
+                        <!-- end footer-box-c -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="footer-box-d">
+                            <h3>Opening Hours</h3>
+
+                            <ul>
+                                <li>
+                                    <p>Monday - Thursday </p>
+                                    <span> 11:00 AM - 9:00 PM</span>
+                                </li>
+                                <li>
+                                    <p>Friday - Saturday </p>
+                                    <span> 11:00 AM - 5:00 PM</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- end footer-box-d -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end footer-in-main -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+        <div id="copyright" class="copyright-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h6 class="copy-title"> Copyright &copy; 2021 Sudama Resturant</h6>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end copyright-main -->
+    </div>
+    <!-- end footer-box -->
+</div>

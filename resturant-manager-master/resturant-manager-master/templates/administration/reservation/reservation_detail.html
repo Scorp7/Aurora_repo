@@ -1,0 +1,160 @@
+{% extends 'administration/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+Detail Reservation - #{{reservation.id}}
+{% endblock title %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Reservation Details&nbsp;&nbsp;&nbsp;<small><a
+                                    href="{% url 'admin_edit_reservation' reservation.id %}">Edit This
+                                    Reservation</a></small></h4>
+                        <p class="category">Details Of Reservation #{{reservation.id}}</p>
+
+                    </div>
+                    <br>
+                    <div class="row " style="padding:10px;">
+                        {% if reservation.user %}
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">User</div>
+                                <div class="panel-body">
+                                    <a href="{% url 'admin_edit_user' reservation.user.id %}">
+                                        {{reservation.user}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Name</div>
+                                <div class="panel-body">
+                                    {{reservation.name}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Email</div>
+                                <div class="panel-body">
+                                    {{reservation.email}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Phone</div>
+                                <div class="panel-body">
+                                    {{reservation.phone}}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Number Of Persons</div>
+                                <div class="panel-body">
+                                    {{reservation.number_of_persons}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Date</div>
+                                <div class="panel-body">
+                                    {{reservation.date}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Time</div>
+                                <div class="panel-body">
+                                    {{reservation.time}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Preferred Food</div>
+                                <div class="panel-body">
+                                    {{reservation.get_preferred_food_display}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Occation</div>
+                                <div class="panel-body">
+                                    {{reservation.get_occation_display}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Table</div>
+                                <div class="panel-body">
+                                    {% if reservation.table %}
+                                    <a href="{% url 'admin_edit_table' reservation.table.id %}">{{reservation.table}}</a>
+                                    {% else %}
+                                    No Table Assigned
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Expired</div>
+                                <div class="panel-body">
+                                    {% if reservation.is_expired %}
+                                    Yes
+                                    {% else %}
+                                    No
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Status</div>
+                                <div class="panel-body">
+                                    {{reservation.get_status_display}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Created On</div>
+                                <div class="panel-body">
+                                    {{reservation.created_on}}
+                                </div>
+                            </div>
+                        </div><div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Changed On</div>
+                                <div class="panel-body">
+                                    {{reservation.changed_on}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extrajs %}
+<script>
+    $('input[name=completed_on]').attr('type', 'date');
+    $('input[name=time]').attr('type', 'time');
+</script>
+
+{% endblock extrajs %}

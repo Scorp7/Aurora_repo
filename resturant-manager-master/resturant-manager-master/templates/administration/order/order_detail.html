@@ -1,0 +1,202 @@
+{% extends 'administration/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+Detail Order - #{{order.id}}
+{% endblock title %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Order Details&nbsp;&nbsp;&nbsp;<small><a href="{% url 'admin_edit_order' order.id %}">Edit This Order</a></small></h4>
+                        <p class="category">Details Of Order #{{order.id}}</p>
+
+                    </div>
+                    <br>
+                    <div class="row " style="padding:10px;">
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">User</div>
+                                <div class="panel-body">
+                                    <a href="{% url 'admin_edit_user' order.user.id %}">
+                                        {{order.user}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Reservation</div>
+                                <div class="panel-body">
+                                    {% if order.reservation %}
+                                    <a href="{% url 'admin_edit_reservation' order.reservation.id %}">
+                                        #{{order.reservation.id}} - {{order.reservation.number_of_persons}}
+                                    </a>
+                                    {% else %}
+                                    Unreserved
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Placed On</div>
+                                <div class="panel-body">
+                                    {{order.placed_on}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Accept Status</div>
+                                <div class="panel-body">
+                                    {{order.accept_status}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Table</div>
+                                <div class="panel-body">
+                                    {% if order.table %}
+                                    <a href="{% url 'admin_edit_table' order.table.id %}">
+                                        {{order.table}}
+                                    </a>
+                                    {% else %}
+                                    No Table Assigned
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Status</div>
+                                <div class="panel-body">
+                                    {{order.get_status_display}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Payment Type</div>
+                                <div class="panel-body">
+                                    {{order.get_payment_type_display}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Payment Status</div>
+                                <div class="panel-body">
+                                    {% if order.payment_is_complete %}
+                                    Complete
+                                    {% else %}
+                                    Pending
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Total Amount</div>
+                                <div class="panel-body">
+                                    &#8377; {{order.amount}}
+                                </div>
+                            </div>
+                        </div>
+                        {% if order.receipt_id %}
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Receipt Id</div>
+                                <div class="panel-body">
+                                    {{order.receipt_id}}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if order.order_id %}
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Razorpay Order Id</div>
+                                <div class="panel-body">
+                                    {{order.order_id}}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if order.payment_id %}
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Razorpay Payment Id</div>
+                                <div class="panel-body">
+                                    {{order.payment_id}}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Food Items:</div>
+                                <div class="panel-body" style="text-overflow: ellipsis;">
+                                    {% if food %}
+                                    {% for i in food %}
+                                    <a href="{% url 'admin_edit_menu' i.food.id %}">{{i.food.name}}</a> <b>x{{i.quantity}}</b> | 
+                                    {% endfor %}
+                                    {% else %}
+                                    No Food Items Found For This Order
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        {% if order.order_response %}
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Razorpay Order Response</div>
+                                <div class="panel-body" style="text-overflow: ellipsis;">
+                                    {{order.order_response}}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if order.payment_response %}
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Razorpay Payment Response</div>
+                                <div class="panel-body" style="text-overflow: ellipsis;">
+                                    {{order.payment_response}}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if order.signature %}
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Razorpay Signature</div>
+                                <div class="panel-body" style="text-overflow: ellipsis;">
+                                    {{order.signature}}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extrajs %}
+<script>
+    $('input[name=completed_on]').attr('type', 'date');
+    $('input[name=time]').attr('type', 'time');
+</script>
+
+{% endblock extrajs %}

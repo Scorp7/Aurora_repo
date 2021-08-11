@@ -1,0 +1,84 @@
+{% extends 'administration/base.html' %}
+{% block title %}
+All Reservations
+{% endblock title %}
+
+{% block extracss %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+{% endblock extracss %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <div style="display: flex;">
+                            <h4 class="title">All Reservations</h4>
+                            <!--
+                            <a href="{% url 'admin_create_table' %}" style="margin-left: 10px;"
+                                class="btn btn-success">
+                                <i class="fa fa-plus"></i>
+                            </a>-->
+                        </div>
+
+                        <p class="category">Manage Reservations</p>
+                    </div>
+                    <div class="content table-responsive table-full-width" style="margin:10px;">
+                        <table class="table table-hover table-striped datatable">
+                            <thead>
+                                <th>Number</th>
+                                <th>Email</th>
+                                <th>Date</th>
+                                <th>Table</th>
+                                <th>Actions</th>
+                            </thead>
+                            <tbody>
+                                {% for i in reservation %}
+                                <tr>
+                                    <td>#{{i.id}}</td>
+                                    <td>
+                                        <a href="{% url 'admin_detail_reservation' i.id %}">
+                                            {{i.email}}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{i.date}}
+                                    </td>
+                                    <td>
+                                        Table #{{i.table.number}}
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'admin_edit_reservation' i.id %}"
+                                            class="btn btn-warning btn-sm">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a href="{% url 'admin_delete_reservation' i.id %}"
+                                            class="btn btn-danger btn-sm">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extrajs %}
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.datatable').DataTable();
+        $('.sidebar-wrapper .nav li').removeClass('active');
+        $('#nav-reservation').addClass('active');
+    });
+</script>
+{% endblock extrajs %}

@@ -1,0 +1,35 @@
+{% extends 'administration/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+Edit User - {{user.fname}} {{user.lname}}
+{% endblock title %}
+    
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Edit User</h4>
+                        <p class="category">Editing User - {{user.email}}</p>
+                    </div>
+                    <div class="content table-responsive table-full-width" style="margin:10px;">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{form|crispy}}
+                            <button class="btn btn-success" type="submit">Submit</button>
+                        </form>
+                       <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extrajs %}
+    
+{% endblock extrajs %}
+    

@@ -1,0 +1,324 @@
+{% extends 'administration/base.html' %}
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Payment Statistics</h4>
+                        <p class="category">Lifetime Performance</p>
+                    </div>
+                    <div class="content">
+                        <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+
+                        <div class="footer">
+                            <div class="legend">
+                                <i class="fa fa-circle text-info"></i> Online
+                                <i class="fa fa-circle text-danger"></i> Counter
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+
+                <div class="card ">
+                    <div class="header">
+                        <h4 class="title">Orders</h4>
+                        <p class="category">Pending Orders</p>
+                    </div>
+                    <div class="content">
+                        <div class="table-full-width">
+                            <table class="table">
+                                <tbody>
+                                    {% for i in orders %}
+                                    <tr>
+                                        <td>
+                                            <a href="{% url 'admin_change_order_status' i.id %}">
+                                                <button rel="tooltip" class="btn btn-simple" title=""
+                                                    style="padding: 0px;" data-original-title="Set as Complete">
+                                                    <i class="fa fa-check"></i>
+                                                </button>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <b>Order Number #{{i}}</b> ---> <i>&#8377; {{i.amount}}</i> -->
+                                            {% if i.payment_is_complete %}
+                                            <span class="text-success">Paid</span>
+                                            {% else %}
+                                            <span class="text-danger">Unpaid</span>
+                                            {% endif %}
+                                            --->
+                                            Payment Type: {{i.get_payment_type_display}}
+                                        </td>
+                                        <td class="td-actions text-right">
+                                            <a href="{% url 'admin_edit_order' i.id %}">
+                                                <button type="button" rel="tooltip" title=""
+                                                    class="btn btn-info btn-simple btn-xs"
+                                                    data-original-title="Edit Order">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                            </a>
+                                            <a href="{% url 'admin_detail_order' i.id %}">
+                                                <button type="button" rel="tooltip" title=""
+                                                    class="btn btn-danger btn-simple btn-xs"
+                                                    data-original-title="Order Details">
+                                                    <i class="fa fa-arrow-right"></i>
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extrajs %}
+<script>
+    $(document).ready(function () {
+        $('.sidebar-wrapper .nav li').removeClass('active');
+        $('#nav-dashboard').addClass('active');
+    });
+    type = ['', 'info', 'success', 'warning', 'danger'];
+
+
+    demo = {
+
+        initChartist: function () {
+            var dataSales = {
+                labels: ['6 days ago', '5 days ago', '4 days ago', '3 days ago', '2 days ago', 'Yesterday',
+                    'Today'
+                ],
+                series: []
+            };
+
+            var optionsSales = {
+                lineSmooth: true,
+                low: 0,
+                high: 10,
+                showArea: true,
+                height: "245px",
+                axisX: {
+                    showGrid: false,
+                },
+                lineSmooth: Chartist.Interpolation.simple({
+                    divisor: 3
+                }),
+                showLine: true,
+                showPoint: true,
+            };
+
+            var responsiveSales = [
+                ['screen and (max-width: 640px)', {
+                    axisX: {
+                        labelInterpolationFnc: function (value) {
+                            return value[0];
+                        }
+                    }
+                }]
+            ];
+
+            Chartist.Line('#chartHours', dataSales, optionsSales, responsiveSales);
+
+
+            var data = {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov',
+                    'Dec'
+                ],
+                series: [
+                    [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895],
+                    [412, 243, 280, 580, 453, 353, 300, 364, 368, 410, 636, 695]
+                ]
+            };
+
+            var options = {
+                seriesBarDistance: 10,
+                axisX: {
+                    showGrid: false
+                },
+                height: "245px"
+            };
+
+            var responsiveOptions = [
+                ['screen and (max-width: 640px)', {
+                    seriesBarDistance: 5,
+                    axisX: {
+                        labelInterpolationFnc: function (value) {
+                            return value[0];
+                        }
+                    }
+                }]
+            ];
+
+            Chartist.Bar('#chartActivity', data, options, responsiveOptions);
+
+            var dataPreferences = {
+                series: [
+                    [25, 30, 20, 25]
+                ]
+            };
+
+            var optionsPreferences = {
+                donut: true,
+                donutWidth: 40,
+                startAngle: 0,
+                total: 100,
+                showLabel: false,
+                axisX: {
+                    showGrid: false
+                }
+            };
+
+            Chartist.Pie('#chartPreferences', dataPreferences, optionsPreferences);
+
+            Chartist.Pie('#chartPreferences', {
+                labels: ['{{pie.online}}%', '{{pie.counter}}%'],
+                series: ['{{pie.online}}', '{{pie.counter}}']
+            });
+        },
+
+        initGoogleMaps: function () {
+            var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
+            var mapOptions = {
+                zoom: 13,
+                center: myLatlng,
+                scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
+                styles: [{
+                    "featureType": "water",
+                    "stylers": [{
+                        "saturation": 43
+                    }, {
+                        "lightness": -11
+                    }, {
+                        "hue": "#0088ff"
+                    }]
+                }, {
+                    "featureType": "road",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                        "hue": "#ff0000"
+                    }, {
+                        "saturation": -100
+                    }, {
+                        "lightness": 99
+                    }]
+                }, {
+                    "featureType": "road",
+                    "elementType": "geometry.stroke",
+                    "stylers": [{
+                        "color": "#808080"
+                    }, {
+                        "lightness": 54
+                    }]
+                }, {
+                    "featureType": "landscape.man_made",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                        "color": "#ece2d9"
+                    }]
+                }, {
+                    "featureType": "poi.park",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                        "color": "#ccdca1"
+                    }]
+                }, {
+                    "featureType": "road",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#767676"
+                    }]
+                }, {
+                    "featureType": "road",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{
+                        "color": "#ffffff"
+                    }]
+                }, {
+                    "featureType": "poi",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "landscape.natural",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                        "visibility": "on"
+                    }, {
+                        "color": "#b8cb93"
+                    }]
+                }, {
+                    "featureType": "poi.park",
+                    "stylers": [{
+                        "visibility": "on"
+                    }]
+                }, {
+                    "featureType": "poi.sports_complex",
+                    "stylers": [{
+                        "visibility": "on"
+                    }]
+                }, {
+                    "featureType": "poi.medical",
+                    "stylers": [{
+                        "visibility": "on"
+                    }]
+                }, {
+                    "featureType": "poi.business",
+                    "stylers": [{
+                        "visibility": "simplified"
+                    }]
+                }]
+
+            }
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                title: "Hello World!"
+            });
+
+            // To add the marker to the map, call setMap();
+            marker.setMap(map);
+        },
+
+        showNotification: function (from, align) {
+            color = Math.floor((Math.random() * 4) + 1);
+
+            $.notify({
+                icon: "pe-7s-gift",
+                message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+
+            }, {
+                type: type[color],
+                timer: 4000,
+                placement: {
+                    from: from,
+                    align: align
+                }
+            });
+        }
+
+    }
+    $('.change-status').click(function () {
+        var id = $(this).val();
+        console.log('baba');
+        window.location.href('change-order-status/' + id + "/");
+    });
+</script>
+{% endblock extrajs %}
