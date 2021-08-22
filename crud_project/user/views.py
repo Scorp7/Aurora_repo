@@ -1,7 +1,24 @@
-from django.http.response import HttpResponse
-from django.shortcuts import render, HttpResponseRedirect
+from django.http.response import HttpResponse, JsonResponse
+from django.shortcuts import render, HttpResponseRedirect, redirect
 from .forms import UserRegistration
-from .models import UserData
+from .models import UserData, User
+# from django.views.decorators.csrf import csrf_exempt
+
+#This is function for ajax call
+# @csrf_exempt 
+def save_data(request):
+    if request.method == "POST":
+        form = UserRegistration(request.POST)
+        if form.isvalid():
+            name = request.POST['name']
+            email = request.POST['email']
+            password = request.POST['password']
+            usr = User(name=name, email=email, password=password)
+            usr.save()
+            return JsonResponse({'status':'Save'})
+        else:
+            return JsonResponse({'status':'Failed'})
+
 
 
 # This is test function
@@ -11,20 +28,22 @@ def test_data(request):
 
 #This function will add new item and show all items
 def add_show(request):
-
+    form = UserRegistration()
     if request.method == "POST":
         form = UserRegistration(request.POST)
         if form.is_valid():
-            nm = form.cleaned_data['name']
-            ag = form.cleaned_data['age']
-            em = form.cleaned_data['email']
-            gndr = form.cleaned_data['gender']
-            pw = form.cleaned_data['password']
-            all_ = UserData(name=nm, age=ag, email=em, gender=gndr, password=pw)
-            all_.save()
-            form = UserRegistration()
-    else:
-        form = UserRegistration()
+            # nm = form.cleaned_data['name']
+            # ag = form.cleaned_data['age']
+            # em = form.cleaned_data['email']
+            # gndr = form.cleaned_data['gender']
+            # pw = form.cleaned_data['password']
+            # all_ = UserData(name=nm, age=ag, email=em, gender=gndr, password=pw)
+            # all_.save()
+            # form = UserRegistration()
+            form.save()
+            return redirect('/user/')
+    # else:
+    #     form = UserRegistration()
     data = UserData.objects.all()
     
 
