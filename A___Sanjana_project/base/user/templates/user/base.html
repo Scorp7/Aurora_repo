@@ -8,10 +8,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -25,8 +21,6 @@
     <link href="https://use.fontawesome.com/release/v5.8.1/css/all.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="/path/to/cdn/bootstrap.min.css" />
-    <link rel="stylesheet" href="/path/to/bootstrap-side-modals.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -45,8 +39,6 @@
    <!-- Stylesheet -->
    <link rel="stylesheet" href="/path/to/cdn/bootstrap.min.css" />
    <link rel="stylesheet" href="/path/to/bootstrap-side-modals.css" />
-   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
-   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Bootstrap CSS -->
@@ -59,11 +51,69 @@
     <title> {% block title %} Desi Addict's Restaurant{% endblock title %}</title>
   
 </head>
+<style>
+/* navigation*/
+nav.r-nav{
+    background: transparent;
+    padding: 20px 0;
+    transition: .5s all;
+    
+}
 
+nav .navbar-brand{
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+}
+nav .navbar-nav li a{
+    color: rgba(182, 184, 174, 0.808) !important;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    font-family: 'Nunito',sans-serif;
+
+}
+nav .navbar-nav li{
+   margin-left:15px;
+}
+nav.r-nav.stickyadd{
+    background:white!important;
+    padding: 5px 0;
+    box-shadow: 0 1px 5px 3px rgba(0,0,0,0.05);
+    transition: .5s all ease-in-out;
+}  
+nav.stickyadd .navbar-brand{
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    transition: .5s all;
+}
+
+nav.stickyadd .navbar-nav .nav-link{
+    color: #000 !important;
+
+}   
+.navbar .hamburger{
+    color: #fff;
+    
+}
+nav.stickyadd .hamburger{
+    color: #000;
+    
+}
+.menus{
+    background-color:black;
+    color: rgb(255, 236, 236);
+}
+
+.menus li a {
+    color: rgb(255, 255, 255);
+  
+}
+
+</style>
 
   <body>
   
-    <nav class="navbar navbar-expand-lg " style="background-color:rgb(131, 195, 255);">
+    <nav class="navbar fixed-top navbar-expand-lg " style="background-color:rgb(131, 195, 255);">
       <div class="container-fluid">
         <a class="navbar-brand" href={% url 'index_url' %}>Desi Addict's</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

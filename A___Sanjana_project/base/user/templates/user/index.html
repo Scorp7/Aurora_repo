@@ -1,16 +1,81 @@
 {% extends 'user/base.html' %}
 {% load static %}
 
+<style>
+.container
+    {
+    position: relative;
+    z-index:1 ;
+    direction: flex;
+    justify-content: center;
+    align-items:center;
+    flex-wrap: wrap;
+    margin: 40px 0;
+    }
+    .container .card{
+        position: relative;
+        width: 300px;
+        height: 400px;
+        background:rgba(255,255,255,0.05);
+        margin:20px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        border-radius: 15px;
+        display: flex;
+        justify-content:center ;
+        align-items: center;
+        backdrop-filter:blur(10px);
+    }
+    .container .card .content{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        opacity: 0.5;
+        transition: 0.5%;
+    }
+    .container .card .content{
+        opacity: 1;
+      
+    }
+    .container .card:hover .content{
+        position:relative;
+        width: 150px;
+        height: 150px;
+        border-radius:50px;
+        overflow: hidden;
+        border:10px solid rgba(0,0,0,0.25);
 
+    }
+.container .card .content .imgBx img{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    object-fit:  cover;
+
+}
+.container .card .content .contentBx h3{
+    color: #fff;
+    text-transform:uppercase;
+    letter: spacing 2px;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0 10px;
+    line: height 1.1em;
+}
+</style>
 {% block title %}Home{% endblock title %}
   
   
 {% block content %}
-        <br><br><br><br>
+        <br><br>
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="image/slider 11.png" class="d-block w-100" alt="..." >
+              <img src="{% static 'user/images/slider 11.png' %}" class="d-block w-100" alt="..." >
             </div>
         </div><br><br>
 
@@ -39,7 +104,7 @@
            <div class="card">
            
            <div class="image">
-              <img src="image/Peanut masala.jpeg" height="300" width="200">
+              <img src="{% static 'user/images/Peanut masala.jpeg' %}" height="300" width="200">
            </div>
            <div class="title" style="background: black;">
             <h1>
@@ -67,7 +132,7 @@
            <div class="card">
            
            <div class="image">
-              <img src="image/palak tikki.jpeg" height="300" width="200">
+              <img src="{% static 'user/images/palak tikki.jpeg'%} "  height="300" width="200">
            </div>
            <div class="title"  style="background: black;">
             <h1>
@@ -94,7 +159,7 @@
            <div class="card" height="400" width="400">
            
            <div class="image">
-              <img src="image/chilli prawns.jpeg" height="300" width="200">
+              <img src="{% static 'user/images/chilli prawns.jpeg'%}" height="300" width="200">
            </div>
            <div class="title"  style="background: black";>
             <h1>
@@ -122,7 +187,7 @@
            <div class="card" height="400" width="500">
            
            <div class="image">
-              <img src="image/chilli fish.jpeg" height="300" width="200">
+              <img src="{% static 'user/images/chilli fish.jpeg'%}" height="300" width="200">
            </div>
            <div class="title"  style="background: black";>
             <h1>
@@ -150,7 +215,7 @@
            <div class="card">
            
            <div class="image">
-              <img src="image/Prawns masala fry.jpeg" height="300" width="200">
+              <img src="{% static 'user/images/Prawns masala fry.jpeg'%}" height="300" width="200">
            </div>
            <div class="title"  style="background: black";>
             <h1>
@@ -178,7 +243,7 @@
            <div class="card">
            
            <div class="image">
-              <img src="image/Paneer Makhanwala.jpeg" height="300" width="200">
+              <img src="{% static 'user/images/Paneer Makhanwala.jpeg'%}" height="300" width="200">
            </div>
            <div class="title"  style="background: black";>
             <h1>
@@ -205,7 +270,7 @@
            <div class="card">
            
            <div class="image">
-              <img src="image/fish tikka.jpeg" height="300" width="200">
+              <img src="{% static 'user/images/fish tikka.jpeg'%}" height="300" width="200">
            </div>
            <div class="title"  style="background: black";>
             <h1>
@@ -234,7 +299,7 @@
            <div class="card">
            
            <div class="image">
-              <img src="image/Chicken Masala.jpeg" height="300" width="200">
+              <img src="{% static 'user/images/Chicken Masala.jpeg' %}" height="300" width="200">
            </div>
            <div class="title"  style="background: black";>
             <h1>
@@ -265,7 +330,7 @@
             <div class="card">
            
               <div class="image">
-                 <img src="image/Egg Biryani.jpeg" height="300" width="200">
+                 <img src="{% static 'user/images/Egg Biryani.jpeg'%}" height="300" width="200">
               </div>
               <div class="title"  style="background: black";>
                <h1>
@@ -297,7 +362,7 @@
            <div class="card">
            
             <div class="image">
-               <img src="image/Paneer Tikka Biryani.jpeg" height="300" width="200">
+               <img src="{% static 'user/images/Paneer Tikka Biryani.jpeg'%} " height="300" width="200">
             </div>
             <div class="title"  style="background: black";>
              <h1>
@@ -327,7 +392,7 @@
            <div class="card">
            
             <div class="image">
-               <img src="image/Amritsari Kulcha.jpeg" height="300" width="200">
+               <img src="{% static 'user/images/Amritsari Kulcha.jpeg'%}" height="300" width="200">
             </div>
             <div class="title"  style="background: black";>
              <h1>
@@ -358,7 +423,7 @@
            <div class="card">
            
             <div class="image">
-               <img src="image/Fish fry Pomfret.jpeg" height="300" width="200">
+               <img src="{% static 'user/images/Fish fry Pomfret.jpeg'%}" height="300" width="200">
             </div>
             <div class="title"  style="background: black";>
              <h1>
