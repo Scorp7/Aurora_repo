@@ -1,0 +1,208 @@
+{% extends 'user/base.html' %}
+{% load static %}
+
+
+{% block title %}Contact Us{% endblock title %}
+  
+  
+{% block content %}
+       
+
+  <div class="modal modal_outer left_modal fade" id="signup" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel2">
+    <div class="modal-dialog" role="document">
+      <form method="post" id="get_quote_frm">
+        <div class="modal-content " style="background-color: rgb(95, 95, 95); color: whitesmoke;">
+          <!-- <input type="hidden" name="email_e" value="admin@filmscafe.in"> -->
+          <div class="modal-header">
+            <h2 class="modal-title">Welcome to Desi Addict's Restaurant</h2>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body get_quote_view_modal_body">
+
+            <div class="form-row">
+
+              <div class="form-group col-sm-6">
+                <label for="name">Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" required="" id="name" name="name">
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="email">Email <span class="text-danger">*</span></label>
+                <input type="email" required="" class="form-control" id="email" name="email">
+              </div>
+              <div class="form-group  col-sm-12">
+                <label for="password">Password <span class="text-danger">*</span></label>
+                <input type="password" required="" class="form-control" id="contact" name="contact">
+              </div>
+              <div class="form-group  col-sm-12">
+                <label for="password">Confirm Password <span class="text-danger">*</span></label>
+                <input type="password" required="" class="form-control" id="contact" name="contact">
+              </div>
+
+
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="reset" class="btn btn-light mr-auto" data-dismiss="modal"><i
+                class="fas fa-window-close mr-2"></i> Cancel</button>
+            <button type="submit" class="btn btn-primary" id="submit_btn">Submit</button>
+          </div>
+
+        </div><!-- //modal-content -->
+      </form>
+    </div><!-- modal-dialog -->
+  </div><!-- modal -->
+  <!-- //left modal -->
+
+      <!-- Modal -->
+  <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <!--Content-->
+    <div class="modal-content form-elegant">
+      <!--Header-->
+      <div class="modal-header text-center">
+        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Log In</strong></h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body mx-4">
+        <!--Body-->
+        <div class="md-form mb-5">
+          <input type="email" id="Form-email1" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="Form-email1">Your email</label>
+        </div>
+
+        <div class="md-form pb-3">
+          <input type="password" id="Form-pass1" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
+          <p class="pass font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1">
+              Password?</a></p>
+        </div>
+
+        <div class="text-center mb-3">
+          <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
+        </div>
+        <p class="pass font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in
+          with:</p>
+
+        <div class="row my-3 d-flex justify-content-center">
+          <!--Facebook-->
+          <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="bi bi-facebook text-center"></i></button>
+          <!--Twitter-->
+          <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="bi bi-twitter"></i></button>
+          <!--Google +-->
+          <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="bi bi-google"></i></button>
+        </div>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer mx-5 pt-3 mb-1">
+        <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href="#" class="blue-text ml-1">
+            Log in</a></p>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+  </div>
+  <!-- Modal -->
+
+
+  <div class="containers mt-5 mb-5 pt-5 pb-5">
+    <div class="form">
+      <div class="contact-info">
+        <h3 class="title">Feel Free To Contact
+         
+          
+          </h3>
+        <p class="text"> Hello Everyone! Have a great day :) We are here to help you. If you want to know something or you have any suggestion then please mail us. Thank You. </p>
+        <div class="info">
+          <div class="social-information"> <i class="bi bi-geo-alt-fill"></i>
+            <p>DOMBIVLI</p>
+          </div>
+          <div class="social-information"> <i class="bi bi-envelope-fill"></i>
+            <p>desiaddictsrestaurant@gmail.com</p>
+          </div>
+          <div class="social-information"> <i class="bi bi-phone-fill"></i>
+            <p>+91 4609834567 </p>
+          </div>
+        </div>
+        <div class="social-media">
+          <p>Connect with us :</p>
+          <div class="social-icons"> <a href="#"> <i class="bi bi-facebook"></i> </a> <a href="#"> <i
+                class="bi bi-twitter"></i> </a> <a href="#"> <i class="bi bi-instagram"></i> </a> <a href="#"> <i
+                class="bi bi-linkedin"></i> </a> </div>
+        </div>
+      </div>
+      <div class="contact-info-form"> <span class="circle one"></span> <span class="circle two"></span>
+        <form action="#" onclick="return false;" autocomplete="off">
+          <h3 class="title">Contact us</h3>
+          <div class="social-input-containers"> <input type="text" name="name" class="input" placeholder="Name" />
+          </div>
+          <div class="social-input-containers"> <input type="email" name="email" class="input" placeholder="Email" />
+          </div>
+          <div class="social-input-containers"> <input type="tel" name="phone" class="input" placeholder="Phone" />
+          </div>
+          <div class="social-input-containers textarea"> <textarea name="message" class="input"
+              placeholder="Your Reviews/Suggestions"></textarea> </div> <input type="submit" value="Send" class="btns" />
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+
+
+{% block extrajs %}
+ 
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+
+  
+
+    
+
+
+
+
+
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="js/app1.js"></script>
+  <script src="lib/typed.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.0/typed.min.js"
+    integrity="sha512-zKaK6G2LZC5YZTX0vKmD7xOwd1zrEEMal4zlTf5Ved/A1RrnW+qt8pWDfo7oz+xeChECS/P9dv6EDwwPwelFfQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.0/typed.min.js.map"></script>
+  <script src="/path/to/cdn/jquery.slim.min.js"></script>
+  <script src="/path/to/cdn/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+{% endblock extrajs %}

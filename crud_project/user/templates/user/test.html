@@ -13,16 +13,9 @@
       </div>
 </div>
 {% endblock content %} -->
-<!DOCTYPE html>
 
-<head>
-    <meta charset="utf-8" />
-    <title>Cars</title>
-    <h1> Enter sales data to store</h1>
-</head>
 
-<body>
-
+{% block content %}
 <div>
     <form method="post">
         {% csrf_token %}
@@ -47,6 +40,4 @@
         <button type="submit" value="submit">Submit</button>
         </form>
 </div>
-<a href="/">Home<a>
-</body>
-</html>
+{% endblock content %}

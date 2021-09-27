@@ -9,9 +9,9 @@ class UserRegistration(forms.ModelForm):
         model = UserData
         fields = ["name", "age", "email", "gender", "password"]
         widgets = {
-            'name': forms.TextInput(attrs={'class':'form-control'}),
-            'age': forms.NumberInput(attrs={'class':'form-control'}),
-            'email': forms.EmailInput(attrs={'class':'form-control'}),
+            'name': forms.TextInput(attrs={'class':'form-control','id':'nameid'}),
+            'age': forms.NumberInput(attrs={'class':'form-control','id':'ageid'}),
+            'email': forms.EmailInput(attrs={'class':'form-control','id':'emailid'}),
             # 'gender': forms.TextInput(attrs={'class':'custom-select mr-sm-2'}),
-            'password': forms.PasswordInput(render_value=True ,attrs={'class':'form-control'}),
+            'password': forms.PasswordInput(render_value=True ,attrs={'class':'form-control','id':'passwordid'}),
         }
