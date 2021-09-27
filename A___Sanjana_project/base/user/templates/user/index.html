@@ -66,12 +66,44 @@
     margin: 20px 0 10px;
     line: height 1.1em;
 }
+.card{
+        width: 20%;
+        display: inline-block;
+        box-shadow: 2px 2px 20px black;
+        border-radius: 5px; 
+        margin: 2%;
+       }
+       .image img{
+     width: 100%;
+     border-top-right-radius: 5px;
+     border-top-left-radius: 5px;
+     
+   
+    
+    .carousel-item{
+    
+    background: rgb(0, 0, 0);
+    opacity: 0.9;
+
+}
+.carousel-caption{
+    bottom: 180px;
+    padding-left: 100px;
+    padding-right: 100px; 
+
+}
+    }
+    
+.checked {
+    color: orange;
+  }
 </style>
 {% block title %}Home{% endblock title %}
   
   
 {% block content %}
-        <br><br>
+<body style="background-color:black">
+        <br><br><br>
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -453,6 +485,6 @@
             </div>
             </div>
             <!--cards -->
-       
+       </body>
 {% endblock content %}
 

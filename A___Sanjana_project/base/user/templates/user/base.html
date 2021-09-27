@@ -65,7 +65,7 @@ nav .navbar-brand{
     color: rgb(255, 255, 255);
 }
 nav .navbar-nav li a{
-    color: rgba(182, 184, 174, 0.808) !important;
+    color: rgb(255, 255, 255) !important;
     font-size: 16px;
     letter-spacing: 0.05em;
     font-weight: 600;
@@ -108,10 +108,25 @@ nav.stickyadd .hamburger{
     color: rgb(255, 255, 255);
   
 }
+ button{
+     margin-top: 10px;
+     margin-bottom: 10px;
+     background-color: rgb(255, 255, 255);
+     border: 1px solid black;
+     border-radius: 5px;
+     padding:10px;
+   }
+   button:hover{
+     background-color: black;
+     color: white;
+     transition: .5s;
+     cursor: pointer;
+   }
+   
 
 </style>
 
-  <body>
+  <body style="background-color:black">
   
     <nav class="navbar fixed-top navbar-expand-lg " style="background-color:rgb(131, 195, 255);">
       <div class="container-fluid">
@@ -120,8 +135,8 @@ nav.stickyadd .hamburger{
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
 
             <li class="nav-item">
               <a class="nav-link" href={% url 'about_url' %}>About Us</a>
@@ -177,7 +192,7 @@ nav.stickyadd .hamburger{
 
 
 <!-- Footer -->
-  <footer class="page-footer font-small"  style="background-color:rgb(122, 118, 118);">;">
+  <footer class="page-footer font-small"  style="background-color:rgb(122, 118, 118);">
   
     <!-- Footer Links -->
     <div class="container text-center text-md-left" style="background-color:rgb(122, 118, 118);">
