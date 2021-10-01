@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from . import forms,models
 # Create your views here.
 def index(request):
     return render(request,'user/index.html')
@@ -51,4 +51,23 @@ def starter(request):
     
 def vegsoups(request):
     return render(request,'user/vegsoups.html')
+    
+def user_signup(request):
+    userForm=forms.UsersForm()
+    mydict={'userForm':userForm}
+    if request.method=='POST':
+        userForm=forms.UsersForm(request.POST)
+        if userForm.is_valid():
+            user=userForm.save()
+            user.set_password(user.password)
+            user.save()
+        return render(request,'user/login.html')
+    return render(request,'user/signup.html',context=mydict)
+
+
+# def is_student(user):
+#     return user.groups.filter(name='STUDENT').exists()
+
+def login(request):
+    return render(request,'user/login.html')
     

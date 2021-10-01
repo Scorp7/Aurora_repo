@@ -19,5 +19,9 @@ urlpatterns = [
     path('/vegetariandishes', views.vegetariandishes,name = "vegetariandishes_url"),
     path('/starter', views.starter,name = "starter_url"),
     path('/vegsoups', views.vegsoups,name = "vegsoups_url"),
-    
+    path('/signup',views.user_signup,name="signup" ),
+    path('/login',views.login,name="login"),
+
+
+
 ]
